@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Spirala1NB18835</string>
+
+    <string-array name="spinner_opcije">
+        <item>Sve ankete</item>
+        <item>Sve moje ankete</item>
+        <item>Urađene ankete</item>
+        <item>Buduće ankete</item>
+        <item>Prošle ankete</item>
+    </string-array>
+
+    <string-array name="godine_spinner_opcije">
+        <item></item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+</resources>
