@@ -15,23 +15,21 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
-        var godina: Int = 0
-    }
     private lateinit var ankete: RecyclerView
     private lateinit var odabirAnketa: Spinner
     private lateinit var anketaAdapter: AnketaAdapter
     private var anketaViewModel = AnketaViewModel()
-   // private lateinit var upisDugme: FloatingActionButton
+    private lateinit var upisDugme: FloatingActionButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*upisDugme=findViewById(R.id.upisDugme)
+        upisDugme=findViewById(R.id.upisDugme)
         upisDugme.setOnClickListener {
             val intent = Intent(this, UpisIstrazivanjeActivity::class.java)
             startActivity(intent)
-        }*/
+        }
 
         ankete=findViewById(R.id.listaAnketa)
         ankete.layoutManager= GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
@@ -78,8 +76,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //override fun onResume() {
-    //  super.onResume()
 
-    //}
 }
