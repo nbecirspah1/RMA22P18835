@@ -1,5 +1,6 @@
 package ba.etf.rma22.projekat.data
 
+import ba.etf.rma22.projekat.data.models.Anketa
 import java.util.*
 
 fun datum(dan : Int, mjesec : Int, godina : Int) : Date {
@@ -12,18 +13,21 @@ fun datum(dan : Int, mjesec : Int, godina : Int) : Date {
 fun sveAnkete(): List<Anketa>{
     return listOf(
         Anketa("Karijera ili ljubav", "Ljudska psihologija",
-            datum(10, 5, 2022), datum(24, 5,2022),
+            datum(10, 8, 2022), datum(24, 8,2022),
             null, 14, "Grupa1", 0.33F),
 
-        Anketa("Da li opraštate", "Ljudska psihologija",
+        Anketa("Karijera ili ljubav", "Ljudska psihologija",
             datum(15, 1, 2022), datum(28, 1, 2022),
-            datum(13, 1, 2022), 13, "Grupa1", 0.55F),
+            datum(13, 1, 2022), 13, "Grupa2", 0.55F),
 
         Anketa("Tjelesna aktivnost", "Zdravlje i način života",
             datum(17,12,2020), datum(17, 12, 2022),
-            null, 15, "Grupa2", 0.65F),
+            null, 15, "Grupa3", 0.65F),
+        Anketa("Tjelesna aktivnost", "Zdravlje i način života",
+            datum(17,12,2020), datum(17, 12, 2022),
+            null, 15, "Grupa4", 0.65F),
 
-        Anketa("Stavovi o izbjeglicama", "Trenutno stanje u svijetu",
+       /* Anketa("Stavovi o izbjeglicama", "Trenutno stanje u svijetu",
             datum(10, 5, 2021), datum(10,6, 2021),
             datum(6, 6, 2021), 8, "Grupa3", 0.43F),
 
@@ -34,17 +38,30 @@ fun sveAnkete(): List<Anketa>{
         Anketa("Sankcije Rusiji", "Politika",
             datum(10, 3, 2022), datum(14, 4, 2022),
             null, 14, "Grupa5", 0.78F),
+*/
 
 
-
-        Anketa("Zadovoljstvo zaposlenika", "Interna anketa",
+        Anketa("Zadovoljstvo zaposlenika1", "Interna anketa",
             datum(10, 3, 2022), datum(10, 4, 2023),
             datum(16, 4, 2022), 14, "Grupa6", 0.78F),
 
-        Anketa("Angažman zaposlenika", "Interna anketa",
+        Anketa("Zadovoljstvo zaposlenika2", "Interna anketa",
+            datum(10, 3, 2022), datum(9, 4, 2022),
+            null, 14, "Grupa7", 0.78F),
+
+        Anketa("Sankcije Rusiji", "Politika",
+            datum(10, 3, 2022), datum(14, 4, 2022),
+            null, 14, "Grupa5", 0.78F),
+
+        Anketa("Sankcije Rusiji", "Politika",
+            datum(10, 3, 2022), datum(14, 4, 2022),
+            null, 14, "Grupa6", 0.78F),
+
+
+        /*Anketa("Angažman zaposlenika", "Interna anketa",
             datum(10, 3, 2022), datum(11, 3, 2022),
             null, 14, "Grupa6", 0.78F)
-
+*/
     )
 }
 /*

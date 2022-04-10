@@ -1,9 +1,14 @@
 package ba.etf.rma22.projekat.viewmodel
 
-import ba.etf.rma22.projekat.data.Anketa
-import ba.etf.rma22.projekat.data.AnketaRepository
+import ba.etf.rma22.projekat.data.models.Anketa
+import ba.etf.rma22.projekat.data.repositories.AnketaRepository
 
 class AnketaViewModel {
+    private lateinit var korisnikovaAnketa : Anketa;
+
+    fun setKorisnikovaAnketa(nazivIstrazivanja : String,grupa :  String, godina : Int ){
+       AnketaRepository.setKorisnikovaAnketa(nazivIstrazivanja, grupa, godina)
+    }
     fun getSveAnkete(): List<Anketa>{
         return AnketaRepository.getAll().sortedBy{it.datumPocetak}
     }

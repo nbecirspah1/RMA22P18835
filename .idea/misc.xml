@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/DT User/AndroidStudioProjects/Spirala1NB18835/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/DT User/AndroidStudioProjects/Spirala1NB18835/app/src/main/res/layout/item_anketa.xml" value="0.1" />
+        <entry key="..\:/Users/DT User/AndroidStudioProjects/Spirala1NB18835/app/src/main/res/drawable/ic_launcher_background.xml" value="0.173" />
+        <entry key="..\:/Users/DT User/AndroidStudioProjects/Spirala1NB18835/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/DT User/AndroidStudioProjects/Spirala1NB18835/app/src/main/res/layout/activity_upis_istrazivanje.xml" value="0.22" />
+        <entry key="..\:/Users/DT User/AndroidStudioProjects/Spirala1NB18835/app/src/main/res/layout/item_anketa.xml" value="0.5" />
       </map>
     </option>
   </component>
