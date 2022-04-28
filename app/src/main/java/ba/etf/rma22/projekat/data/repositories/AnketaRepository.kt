@@ -1,5 +1,6 @@
 package ba.etf.rma22.projekat.data.repositories
 
+import ba.etf.rma22.projekat.data.fragment.FragmentAnkete
 import ba.etf.rma22.projekat.data.models.Anketa
 import ba.etf.rma22.projekat.data.repositories.IstrazivanjeRepository.getIstrazivanjeByGodina
 import ba.etf.rma22.projekat.data.sveAnkete
@@ -11,7 +12,15 @@ object AnketaRepository {
    /* init{
         mojeAnkete.add(0, sveAnkete().get(1))
     }*/
-
+    fun setProgres(progres : Float){
+        getTrenutnaAnketa1().progres=progres
+    }
+   fun setUradjeneAnkete(anketa : Anketa){
+       getDone().toMutableList().add(anketa)
+   }
+    fun getTrenutnaAnketa1() : Anketa{
+        return getAll().filter{it.naziv== FragmentAnkete.naziv && it.nazivIstrazivanja== FragmentAnkete.nazivIstrazivanja }[0]
+    }
     fun getMyAnkete() : List<Anketa>{
       if(i==0){
            i++;

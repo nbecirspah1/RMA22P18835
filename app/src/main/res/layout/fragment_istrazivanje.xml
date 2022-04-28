@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpisIstrazivanjeActivity">
+    tools:context=".MainActivity">
 
     <Spinner
         android:id="@+id/odabirGodina"
@@ -101,4 +101,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/odabirGodina"
         app:layout_constraintVertical_bias="0.985" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

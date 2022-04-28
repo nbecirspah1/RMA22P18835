@@ -15,11 +15,21 @@ import java.util.*
 class AnketaAdapter(
     private var ankete: List<Anketa>
 )  : RecyclerView.Adapter<AnketaAdapter.AnketaViewHolder>(){
+
+    private lateinit var msListener : onItemClickListener
+    interface onItemClickListener{
+        fun onItemClick(position : Int){
+
+        }
+    }
+    fun setOnItemClickListener(listener : onItemClickListener){
+        msListener=listener
+    }
     override  fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnketaViewHolder {
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_anketa, parent, false)
-        return AnketaViewHolder(view)
+        return AnketaViewHolder(view, msListener)
     }
 
     override fun getItemCount(): Int = ankete.size
@@ -65,12 +75,18 @@ class AnketaAdapter(
         notifyDataSetChanged()
     }
 
-    inner class AnketaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class AnketaViewHolder(itemView: View, listener : AnketaAdapter.onItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val anketaImage: ImageView = itemView.findViewById(R.id.imageView)
         val txtViewZaDatum: TextView = itemView.findViewById(R.id.datum)
         val nazivAnkete: TextView =itemView.findViewById(R.id.nazivAnkete)
         val istrazivanje: TextView =itemView.findViewById(R.id.brojIstrazivanja)
         val progressBar: ProgressBar =itemView.findViewById(R.id.progresZavrsetka)
+        init{
+            itemView.setOnClickListener{
+                listener.onItemClick(adapterPosition)
+            }
     }
+
+}
 
 }

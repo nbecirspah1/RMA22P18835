@@ -31,4 +31,6 @@ class IstrazivanjeViewModel {
     fun getGodina() : Int{
         return godina
     }
+
+
 }

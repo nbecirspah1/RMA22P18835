@@ -60,4 +60,5 @@ dependencies {
     testImplementation("org.hamcrest:hamcrest:2.2")
     androidTestImplementation "androidx.test.espresso:espresso-contrib:3.4.0"
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.4.0'
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
 }

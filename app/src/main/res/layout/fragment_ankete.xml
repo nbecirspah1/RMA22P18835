@@ -6,12 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/pager"
+    <Spinner
+        android:id="@+id/filterAnketa"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/listaAnketa"
+        android:background="#6F8FAF"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaAnketa"
+        android:layout_width="430dp"
+        android:layout_height="692dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/filterAnketa"
+
+
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
