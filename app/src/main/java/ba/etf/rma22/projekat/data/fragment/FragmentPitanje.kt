@@ -47,7 +47,7 @@ class FragmentPitanje(private val pitanje : Pitanje): Fragment() {
         view1=view
         tekstPitanja.setText(pitanje.tekst)
 
-        adapter = MyAdapter(view.context, android.R.layout.simple_list_item_1, pitanje.opcije)
+        adapter = ArrayAdapter(view.context, android.R.layout.simple_list_item_1, pitanje.opcije)
         ponudjeniOdgovori.adapter = adapter
      //   odgovoriAD= MyAdapter(view.context, odgovori, pitanje.odgovor)
        // odgovori.addAll(pitanje.opcije)
@@ -82,7 +82,7 @@ class FragmentPitanje(private val pitanje : Pitanje): Fragment() {
 
 
     }
-
+/*
 class MyAdapter( context : Context, private val layoutResource : Int, private val elements : List<String>)
     : ArrayAdapter<String>(context, layoutResource, elements){
     override fun getView(position : Int, convertView : View?, parent : ViewGroup) : View{
@@ -100,6 +100,6 @@ class MyAdapter( context : Context, private val layoutResource : Int, private va
         }
 
 return view
-    }
-}
+    }*/
+//}
 
