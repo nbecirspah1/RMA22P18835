@@ -38,4 +38,6 @@ class AnketaViewModel {
     fun setProgress(progres : Float){
         AnketaRepository.setProgres(progres)
     }
+
+
 }
