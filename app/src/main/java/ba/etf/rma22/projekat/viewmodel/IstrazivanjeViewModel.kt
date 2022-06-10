@@ -9,10 +9,10 @@ class IstrazivanjeViewModel {
         return IstrazivanjeRepository.getIstrazivanjeByGodina(godina)
     }
 
-    fun setKorisnikovoIstrazivanje(nazivIstrazivanja : String, godina : Int){
+   /* fun setKorisnikovoIstrazivanje(nazivIstrazivanja : String, godina : Int){
         IstrazivanjeRepository.setKorisnikovoIstrazivanje(nazivIstrazivanja, godina)
 
-    }
+    }*/
 
     fun getAll() : List<Istrazivanje>{
         return IstrazivanjeRepository.getAll()

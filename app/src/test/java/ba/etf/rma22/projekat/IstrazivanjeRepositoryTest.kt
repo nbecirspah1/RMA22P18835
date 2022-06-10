@@ -1,8 +1,8 @@
 package ba.etf.rma22.projekat
-
+/*
 import ba.etf.rma22.projekat.data.models.Anketa
 import ba.etf.rma22.projekat.data.repositories.AnketaRepository
-import ba.etf.rma22.projekat.data.repositories.IstrazivanjeRepository
+//import ba.etf.rma22.projekat.data.repositories.IstrazivanjeRepository
 import org.hamcrest.Matchers.*
 import org.junit.Test
 import org.junit.Assert.*
@@ -65,4 +65,4 @@ class IstrazivanjeRepositoryTest {
 
     }
 
-}
+}*/

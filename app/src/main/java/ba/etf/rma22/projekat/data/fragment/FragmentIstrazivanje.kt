@@ -142,9 +142,9 @@ class FragmentIstrazivanje : Fragment() {
 
 
             button.setOnClickListener {
-                anketaViewModel.setKorisnikovaAnketa(izborIstrazivanja.selectedItem.toString(),
-                    izborGrupe.selectedItem.toString(), izborGodine.selectedItem.toString().toInt())
-                istrazivanjeViewModel.setKorisnikovoIstrazivanje(izborIstrazivanja.selectedItem.toString(),izborGodine.selectedItem.toString().toInt())
+           //     anketaViewModel.setKorisnikovaAnketa(izborIstrazivanja.selectedItem.toString(),
+              //      izborGrupe.selectedItem.toString(), izborGodine.selectedItem.toString().toInt())
+               // istrazivanjeViewModel.setKorisnikovoIstrazivanje(izborIstrazivanja.selectedItem.toString(),izborGodine.selectedItem.toString().toInt())
 
                 var s :String
                 s="Uspješno ste upisani u grupu "+  izborGrupe.selectedItem.toString()+" istraživanja "+ izborIstrazivanja.selectedItem.toString()+"!"
@@ -217,4 +217,3 @@ class FragmentIstrazivanje : Fragment() {
 
 
 }
-

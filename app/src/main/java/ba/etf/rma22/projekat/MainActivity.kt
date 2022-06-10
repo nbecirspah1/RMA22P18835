@@ -12,11 +12,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import ba.etf.rma22.projekat.data.fragment.FragmentAnkete
-import ba.etf.rma22.projekat.data.fragment.FragmentAnkete.Companion.naziv
-import ba.etf.rma22.projekat.data.fragment.FragmentAnkete.Companion.nazivIstrazivanja
-import ba.etf.rma22.projekat.data.fragment.FragmentIstrazivanje
-import ba.etf.rma22.projekat.data.fragment.FragmentPitanje
-import ba.etf.rma22.projekat.data.fragment.FragmentPoruka
 import ba.etf.rma22.projekat.viewmodel.PitanjeAnketaViewModel
 
 
@@ -34,11 +29,13 @@ class MainActivity : AppCompatActivity() {
         val fragments =
             mutableListOf(
                 FragmentAnkete(),
-                FragmentIstrazivanje()
+                //FragmentIstrazivanje()
+            FragmentAnkete()
             )
 
         viewPager.offscreenPageLimit = 2
-        viewPagerAdapter = ViewPagerAdapter(supportFragmentManager, fragments, lifecycle)
+        viewPagerAdapter = ViewPagerAdapter(supportFragmentManager,
+            fragments.toMutableList(), lifecycle)
         viewPager.adapter = viewPagerAdapter
 
 
@@ -46,7 +43,8 @@ class MainActivity : AppCompatActivity() {
 
     fun refreshSecondFragmentText() {
         Handler(Looper.getMainLooper()).postDelayed({
-           viewPagerAdapter.refreshFragment(1, FragmentIstrazivanje())
+           viewPagerAdapter.refreshFragment(1, //FragmentIstrazivanje()
+                                                    FragmentAnkete() )
         }, 5000)
     }
 
@@ -62,8 +60,8 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
            viewPagerAdapter.refreshFragment(
                 1,
-                FragmentIstrazivanje()
-            )
+                //FragmentIstrazivanje()
+            FragmentAnkete())
         }, 50)
 
       while(true){
@@ -88,12 +86,12 @@ class MainActivity : AppCompatActivity() {
             )
         }, 50)
         var s : String
-        s="Završili ste anketu " + naziv + " u okviru istraživanja "+ nazivIstrazivanja+ "."
+        s="Završili ste anketu "  + " u okviru istraživanja "+ "."
         Handler(Looper.getMainLooper()).postDelayed({
             viewPagerAdapter.refreshFragment(
                 1,
-                FragmentPoruka.newInstance(s)
-            )
+              //  FragmentPoruka.newInstance(s)
+            FragmentAnkete())
         }, 50)
 
      /*   while(true){

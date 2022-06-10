@@ -11,7 +11,7 @@ import androidx.core.view.iterator
 import androidx.fragment.app.Fragment
 import ba.etf.rma22.projekat.MainActivity
 import ba.etf.rma22.projekat.R
-import ba.etf.rma22.projekat.data.fragment.FragmentAnkete.Companion.indeks
+
 import ba.etf.rma22.projekat.data.fragment.FragmentPitanje.Companion.indeks1
 import ba.etf.rma22.projekat.data.models.ListaOdgovora
 import ba.etf.rma22.projekat.data.models.Pitanje
@@ -23,7 +23,7 @@ class FragmentPitanje(private val pitanje : Pitanje): Fragment() {
     private lateinit var ponudjeniOdgovori: ListView
     private lateinit var dugmeZaustavi: Button
     private lateinit var adapter: ArrayAdapter<String>
-  //  private lateinit var odgovoriAD : MyAdapter
+    //  private lateinit var odgovoriAD : MyAdapter
     private lateinit var view1 : View
     var odgovori= arrayListOf<String>()
 
@@ -45,26 +45,26 @@ class FragmentPitanje(private val pitanje : Pitanje): Fragment() {
         ponudjeniOdgovori = view.findViewById(R.id.odgovoriLista)
         dugmeZaustavi = view.findViewById(R.id.dugmeZaustavi)
         view1=view
-        tekstPitanja.setText(pitanje.tekst)
+        //tekstPitanja.setText(pitanje.tekst)
 
         adapter = ArrayAdapter(view.context, android.R.layout.simple_list_item_1, pitanje.opcije)
         ponudjeniOdgovori.adapter = adapter
-     //   odgovoriAD= MyAdapter(view.context, odgovori, pitanje.odgovor)
-       // odgovori.addAll(pitanje.opcije)
+        //   odgovoriAD= MyAdapter(view.context, odgovori, pitanje.odgovor)
+        // odgovori.addAll(pitanje.opcije)
         //odgovoriAD= MyAdapter(view.context, odgovori, pitanje.odgovor)
 
         var i =0
 
 
-      ponudjeniOdgovori.onItemClickListener = object : AdapterView.OnItemClickListener {
+        ponudjeniOdgovori.onItemClickListener = object : AdapterView.OnItemClickListener {
 
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                FragmentPredaj().uvecajProgres(FragmentAnkete.velicina)
+               // FragmentPredaj().uvecajProgres(FragmentAnkete.velicina)
                 var i =0
                 indeks1=p2
                 for(pO in ponudjeniOdgovori) {
                     if(i==p2)
-                    (ponudjeniOdgovori.getChildAt(p2) as TextView).setTextColor(Color.parseColor("#0000FF"))
+                        (ponudjeniOdgovori.getChildAt(p2) as TextView).setTextColor(Color.parseColor("#0000FF"))
                     else
                         (ponudjeniOdgovori.getChildAt(i) as TextView).setTextColor(Color.parseColor("#000000"))
                     i++
@@ -74,14 +74,14 @@ class FragmentPitanje(private val pitanje : Pitanje): Fragment() {
         }
 
         dugmeZaustavi.setOnClickListener {
-           (activity as MainActivity).zaustaviAnketu()
+            (activity as MainActivity).zaustaviAnketu()
         }
 
         return view
     }
 
 
-    }
+}
 /*
 class MyAdapter( context : Context, private val layoutResource : Int, private val elements : List<String>)
     : ArrayAdapter<String>(context, layoutResource, elements){

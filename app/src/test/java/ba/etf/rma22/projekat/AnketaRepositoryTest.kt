@@ -2,13 +2,14 @@ package ba.etf.rma22.projekat
 
 import ba.etf.rma22.projekat.data.models.Anketa
 import ba.etf.rma22.projekat.data.repositories.AnketaRepository
+import kotlinx.coroutines.runBlocking
 import org.hamcrest.Matchers.*
 import org.junit.Test
 
 import org.junit.Assert.*
 import org.junit.FixMethodOrder
 import org.junit.runners.MethodSorters
-import org.hamcrest.CoreMatchers.`is` as Is
+import org.hamcrest.CoreMatchers.`is` as Is/*
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 //@RunWith(AndroidJUnit4::class)
 class AnketaRepositoryTest {
@@ -121,4 +122,4 @@ class AnketaRepositoryTest {
         assertThat(ankete, hasItem<Anketa>(hasProperty("naziv", Is("Zadovoljstvo zaposlenika2"))))
         assertThat(ankete, hasItem<Anketa>(hasProperty("nazivIstrazivanja", Is("Interna anketa"))))
     }
-    }
+    }*/
