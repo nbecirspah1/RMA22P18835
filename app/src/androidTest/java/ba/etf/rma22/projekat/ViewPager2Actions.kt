@@ -1,6 +1,6 @@
 package ba.etf.rma22.projekat
 
-
+/*
 import androidx.test.espresso.ViewAction
 import androidx.viewpager2.widget.ViewPager2
 
@@ -53,4 +53,4 @@ class ViewPager2Actions {
         }
 
     }
-}
+}*/

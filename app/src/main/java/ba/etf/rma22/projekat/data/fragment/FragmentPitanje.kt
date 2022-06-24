@@ -26,6 +26,7 @@ class FragmentPitanje(private val pitanje : Pitanje): Fragment() {
     //  private lateinit var odgovoriAD : MyAdapter
     private lateinit var view1 : View
     var odgovori= arrayListOf<String>()
+    private lateinit var opcije: ArrayList<String>
 
 
 
@@ -47,7 +48,10 @@ class FragmentPitanje(private val pitanje : Pitanje): Fragment() {
         view1=view
         //tekstPitanja.setText(pitanje.tekst)
 
-        adapter = ArrayAdapter(view.context, android.R.layout.simple_list_item_1, pitanje.opcije)
+        for (opcija in pitanje.opcije){
+            opcije.add(opcija.toString())
+        }
+        adapter = ArrayAdapter(view.context, android.R.layout.simple_list_item_1, opcije)
         ponudjeniOdgovori.adapter = adapter
         //   odgovoriAD= MyAdapter(view.context, odgovori, pitanje.odgovor)
         // odgovori.addAll(pitanje.opcije)

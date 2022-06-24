@@ -1,20 +1,34 @@
 package ba.etf.rma22.projekat.data.models
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class Anketa (
-    @SerializedName("id") val id : Int,
-    @SerializedName("naziv") val naziv: String,
-   var nazivIstrazivanja : String?,
-    @SerializedName("datumPocetak") val datumPocetak : Date,
-    @SerializedName("datumKraj") val datumKraj : Date,
-    var datumRada : Date?,
-    @SerializedName("trajanje") val trajanje : Int,
-    var nazivGrupe : String?,
-    var progres: Float?
+@Entity
+data class Anketa(
+    @PrimaryKey @SerializedName("id") var id : Int=-1,
+    @ColumnInfo(name = "naziv") @SerializedName("naziv") var naziv: String="",
+    // var datumPocetakDb: String="",
+     //var datumKrajDb: String="",
+    @ColumnInfo(name = "trajanje") @SerializedName("trajanje") var trajanje : Int=0,
+   //  var datumRadaDb: String="",
+    @ColumnInfo(name = "nazivIstrazivanja") var nazivIstrazivanja : String?=null,
+    @ColumnInfo(name = "datumPocetak") @SerializedName("datumPocetak") var datumPocetak : Date= Date(),
+    @ColumnInfo(name = "datumKraj") @SerializedName("datumKraj") var datumKraj : Date?=Date(),
+    @ColumnInfo(name = "datumRada")  @SerializedName("datumRada") var datumRada : Date?=null,
+    @ColumnInfo(name = "nazivGrupe") var nazivGrupe : String?=null,
+    @ColumnInfo(name = "progres") var progres: Float?=null,
+    @ColumnInfo(name="upisaneAnkete") var upisaneAnkete : Boolean? = false
+
+
+
 ) {
-    override fun hashCode(): Int {
+
+
+   override fun hashCode(): Int {
         return id.hashCode()
     }
 
@@ -23,4 +37,6 @@ data class Anketa (
         if(anketa.id==this.id) return true
         return false
     }
+
+
 }

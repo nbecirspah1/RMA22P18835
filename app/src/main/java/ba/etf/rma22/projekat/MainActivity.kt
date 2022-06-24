@@ -5,6 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.PersistableBundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -12,7 +13,15 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import ba.etf.rma22.projekat.data.fragment.FragmentAnkete
+import ba.etf.rma22.projekat.data.fragment.FragmentIstrazivanje
+import ba.etf.rma22.projekat.data.fragment.FragmentPredaj
+import ba.etf.rma22.projekat.data.repositories.*
+import ba.etf.rma22.projekat.viewmodel.GrupaViewModel
 import ba.etf.rma22.projekat.viewmodel.PitanjeAnketaViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 //private const val NUM_PAGES = 2
@@ -20,7 +29,7 @@ import ba.etf.rma22.projekat.viewmodel.PitanjeAnketaViewModel
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager2
-
+    private val grupaViewModel = GrupaViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +37,10 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.pager)
         val fragments =
             mutableListOf(
-                FragmentAnkete(),
-                //FragmentIstrazivanje()
-            FragmentAnkete()
+                FragmentPredaj(),
+               // FragmentAnkete(),
+                FragmentIstrazivanje()
+            //FragmentAnkete()
             )
 
         viewPager.offscreenPageLimit = 2
@@ -39,12 +49,44 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = viewPagerAdapter
 
 
+        AccountRepository.setContext(applicationContext)
+        AnketaRepository.setContext(applicationContext)
+        OdgovorRepository.setContext(applicationContext)
+        PitanjeAnketaRepository.setContext(applicationContext)
+        IstrazivanjeIGrupaRepository.setContext(applicationContext)
+        TakeAnketaRepository.setContext(applicationContext)
+        // NOVO
+        val payload = intent?.getStringExtra("payload")
+        if (payload != null) {
+            grupaViewModel.promijeniHash(payload, onSuccess = ::onSuccess, onError = ::onError)
+        }
+        else grupaViewModel.promijeniHash("39590664-6275-430a-ab51-a784d4546f62", onSuccess = ::onSuccess, onError = ::onError)
+        // NOVO
+
+    }
+
+    fun onSuccess(){
+        GlobalScope.launch(Dispatchers.IO){
+            withContext(Dispatchers.Main){
+                val toast = Toast.makeText(applicationContext, "Sve ok", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+        }
+    }
+
+    fun onError() {
+        GlobalScope.launch(Dispatchers.IO){
+            withContext(Dispatchers.Main){
+                val toast = Toast.makeText(applicationContext, "Neki error", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+        }
     }
 
     fun refreshSecondFragmentText() {
         Handler(Looper.getMainLooper()).postDelayed({
-           viewPagerAdapter.refreshFragment(1, //FragmentIstrazivanje()
-                                                    FragmentAnkete() )
+           viewPagerAdapter.refreshFragment(1, FragmentIstrazivanje())
+                                                    //FragmentAnkete() )
         }, 5000)
     }
 
@@ -53,7 +95,8 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
      viewPagerAdapter.refreshFragment(
                 0,
-                FragmentAnkete()
+               FragmentPredaj()
+         //FragmentAnkete()
             )
         }, 50)
 
@@ -61,7 +104,8 @@ class MainActivity : AppCompatActivity() {
            viewPagerAdapter.refreshFragment(
                 1,
                 //FragmentIstrazivanje()
-            FragmentAnkete())
+           FragmentPredaj())
+                                           //         FragmentAnkete())
         }, 50)
 
       while(true){
@@ -82,7 +126,8 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             viewPagerAdapter.refreshFragment(
                 0,
-                FragmentAnkete()
+                FragmentPredaj()
+                    //FragmentAnkete()
             )
         }, 50)
         var s : String
@@ -91,7 +136,8 @@ class MainActivity : AppCompatActivity() {
             viewPagerAdapter.refreshFragment(
                 1,
               //  FragmentPoruka.newInstance(s)
-            FragmentAnkete())
+           // FragmentPredaj())
+                                                    FragmentAnkete())
         }, 50)
 
      /*   while(true){

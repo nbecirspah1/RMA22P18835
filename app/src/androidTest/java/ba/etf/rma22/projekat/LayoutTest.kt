@@ -1,5 +1,5 @@
 package ba.etf.rma22.projekat
-
+/*
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.PositionAssertions.*
@@ -11,7 +11,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/*
+
 @RunWith(AndroidJUnit4::class)
 class LayoutTest {
     @get:Rule

@@ -1,6 +1,6 @@
 //@file:Suppress("PackageDirectoryMismatch")
 package ba.etf.rma22.projekat
-
+/*
 import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.widget.TextView
@@ -15,6 +15,7 @@ import junit.framework.Assert.assertTrue
 import org.hamcrest.CoreMatchers
 import org.hamcrest.Description
 import org.hamcrest.TypeSafeMatcher
+
 
 class UtilTestClass {
     companion object{
@@ -69,4 +70,4 @@ class UtilTestClass {
 
         }
     }
-}
+}*/

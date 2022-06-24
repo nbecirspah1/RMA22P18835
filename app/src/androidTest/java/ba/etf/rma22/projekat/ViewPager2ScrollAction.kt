@@ -1,6 +1,6 @@
 package ba.etf.rma22.projekat
 
-
+/*
 import android.view.View
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.IdlingResource
@@ -88,4 +88,4 @@ abstract class ViewPager2ScrollAction : ViewAction {
         }
     }
     protected abstract fun performScroll(viewPager: ViewPager2?)
-}
+}*/

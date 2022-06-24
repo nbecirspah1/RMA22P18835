@@ -1,6 +1,6 @@
 package ba.etf.rma22.projekat
 
-
+/*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
@@ -51,4 +51,4 @@ class PitanjeTest {
         onView(withSubstring("Završili ste anketu")).check(matches(isDisplayed()))
     }
 
-}
+}*/

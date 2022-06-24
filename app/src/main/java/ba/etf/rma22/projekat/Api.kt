@@ -9,7 +9,7 @@ import retrofit2.http.*
 
 interface Api {
     @GET("/anketa/{id}/pitanja")
-    suspend fun getPitanja(@Path("id") idKviza: Int): List<Pitanje>
+    suspend fun getPitanja(@Path("id") idAnkete: Int): List<Pitanje>
 
     @POST("/student/{id}/anketa/{kid}")
     suspend fun zapocniAnketu(@Path("kid") idAnkete: Int, @Path("id") id: String): AnketaTaken
@@ -35,6 +35,9 @@ interface Api {
     @GET("/grupa/{id}/ankete")
     suspend fun getAnketeZaGrupu(@Path("id") idGrupe: Int): List<Anketa>
 
+    @GET("/ankete/{id}")
+    suspend fun getAnketaById(@Path("id") idGrupe: Int): Anketa
+
     @GET("/grupa")
     suspend fun getGrupe(): List<Grupa>
 
@@ -55,4 +58,10 @@ interface Api {
 
     @POST("/student/{id}/anketataken/{ktid}/odgovor")
     suspend fun postaviOdgovorAnketa(@Path("ktid") anketaId : Int, @Path("id") hash : String, @Body podaci: PovratniPodaci) : PovratniOdgovor
+
+    @GET("student/{id}")
+    suspend fun getAcc(@Path("id") id: String): Account
+
+    @GET("grupa/{id}")
+    suspend fun getGrupaById(@Path("id") id : Int) : Grupa
 }
